@@ -5,9 +5,9 @@ using TimeZoneConverter;
 namespace Soenneker.Utils.TimeZones;
 
 /// <summary>
-/// A utility library for easy access to common TimeZoneInfos
+/// A utility library for easy access to common <see cref="TimeZoneInfo"/>
 /// </summary>
-public static class TimeZones
+public static class Tz
 {
     private static readonly Lazy<TimeZoneInfo> _easternLazy = new(() => TZConvert.GetTimeZoneInfo("America/New_York"), LazyThreadSafetyMode.PublicationOnly);
     private static readonly Lazy<TimeZoneInfo> _centralLazy = new(() => TZConvert.GetTimeZoneInfo("America/Chicago"), LazyThreadSafetyMode.PublicationOnly);
