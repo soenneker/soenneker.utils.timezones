@@ -15,9 +15,9 @@ public class TimeZonesTests : FixturedUnitTest
     [Fact]
     public void Retrieving_all_zones_should_retrieve()
     {
-        TimeZones.Eastern.Should().NotBeNull();
-        TimeZones.Central.Should().NotBeNull();
-        TimeZones.Mountain.Should().NotBeNull();
-        TimeZones.Pacific.Should().NotBeNull();
+        Tz.Eastern.Should().NotBeNull();
+        Tz.Central.Should().NotBeNull();
+        Tz.Mountain.Should().NotBeNull();
+        Tz.Pacific.Should().NotBeNull();
     }
 }
