@@ -13,7 +13,7 @@
         <Version Condition="'$(BUILD_VERSION)' != ''">$(BUILD_VERSION)</Version>
         <AssemblyName>Soenneker.Utils.TimeZones</AssemblyName>
         <PackageId>Soenneker.Utils.TimeZones</PackageId>
-        <PackageTags>utils timezones datetime timezone date time conversion zone util csharp dotnet c# .net</PackageTags>
+        <PackageTags>utils timezones datetime timezone date time conversion zone util csharp dotnet c# .net tz</PackageTags>
         <Copyright>Copyright © 2024 Jake Soenneker</Copyright>
         <Authors>Jake Soenneker</Authors>
         <Company>https://soenneker.com</Company>
