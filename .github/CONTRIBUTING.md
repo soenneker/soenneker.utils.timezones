@@ -1,4 +1,4 @@
-# Contributing to Soenneker.Utils.TimeZones
+﻿# Contributing to Soenneker.Utils.TimeZones
 
 We're excited that you're interested in contributing!
 
