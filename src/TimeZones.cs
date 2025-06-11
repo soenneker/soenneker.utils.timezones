@@ -39,4 +39,19 @@ public static class Tz
     /// Gets the &lt;see cref="TimeZoneInfo"/&gt; for Arizona, which does not observe Daylight Saving Time and is effectively in Mountain Standard Time year-round.
     /// </summary>
     public static TimeZoneInfo Arizona => _arizonaLazy.Value;
+
+    /// <summary>
+    /// Maps a CLDR time-zone ID (e.g. "America/Chicago") to one of the above,
+    /// or falls back to TZConvert if it’s not one of the five.
+    /// </summary>
+    public static TimeZoneInfo FromCldr(string cldrTimeZoneId) => cldrTimeZoneId switch
+    {
+        "America/New_York" => Eastern,
+        "America/Chicago" => Central,
+        "America/Denver" => Mountain,
+        "America/Boise" => Mountain,
+        "America/Los_Angeles" => Pacific,
+        "America/Phoenix" => Arizona,
+        _ => TZConvert.GetTimeZoneInfo(cldrTimeZoneId)
+    };
 }
