@@ -13,6 +13,7 @@ public static class Tz
     private static readonly Lazy<TimeZoneInfo> _centralLazy = new(() => TZConvert.GetTimeZoneInfo("America/Chicago"), LazyThreadSafetyMode.PublicationOnly);
     private static readonly Lazy<TimeZoneInfo> _mountainLazy = new(() => TZConvert.GetTimeZoneInfo("America/Boise"), LazyThreadSafetyMode.PublicationOnly);
     private static readonly Lazy<TimeZoneInfo> _pacificLazy = new(() => TZConvert.GetTimeZoneInfo("America/Los_Angeles"), LazyThreadSafetyMode.PublicationOnly);
+    private static readonly Lazy<TimeZoneInfo> _arizonaLazy = new(() => TZConvert.GetTimeZoneInfo("America/Phoenix"), LazyThreadSafetyMode.PublicationOnly);
 
     /// <summary>
     /// Gets the <see cref="TimeZoneInfo"/> for the Eastern Standard Time zone (EST), covering the east coast of the United States.
@@ -33,4 +34,9 @@ public static class Tz
     /// Gets the <see cref="TimeZoneInfo"/> for the Pacific Standard Time zone (PST), covering the west coast of the United States.
     /// </summary>
     public static TimeZoneInfo Pacific => _pacificLazy.Value;
+
+    /// <summary>
+    /// Gets the &lt;see cref="TimeZoneInfo"/&gt; for Arizona, which does not observe Daylight Saving Time and is effectively in Mountain Standard Time year-round.
+    /// </summary>
+    public static TimeZoneInfo Arizona => _arizonaLazy.Value;
 }
