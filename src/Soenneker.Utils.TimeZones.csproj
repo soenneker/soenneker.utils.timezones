@@ -42,7 +42,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Soenneker.Extensions.String" Version="3.0.530" />
         <PackageReference Include="TimeZoneConverter" Version="7.0.0" />
     </ItemGroup>
 </Project>
