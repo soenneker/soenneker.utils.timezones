@@ -14,7 +14,7 @@
         <AssemblyName>Soenneker.Utils.TimeZones</AssemblyName>
         <PackageId>Soenneker.Utils.TimeZones</PackageId>
         <PackageTags>utils timezones datetime timezone date time conversion zone util csharp dotnet c# .net tz</PackageTags>
-        <Copyright>Copyright © 2024-2025 Jake Soenneker</Copyright>
+        <Copyright>Copyright © 2024-2026 Jake Soenneker</Copyright>
         <Authors>Jake Soenneker</Authors>
         <Company>https://soenneker.com</Company>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
