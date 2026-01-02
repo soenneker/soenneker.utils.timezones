@@ -1,5 +1,5 @@
 using System;
-using System.Threading;
+using System.Collections.Concurrent;
 using TimeZoneConverter;
 
 namespace Soenneker.Utils.TimeZones;
@@ -9,11 +9,13 @@ namespace Soenneker.Utils.TimeZones;
 /// </summary>
 public static class Tz
 {
-    private static readonly Lazy<TimeZoneInfo> _easternLazy = new(() => TZConvert.GetTimeZoneInfo("America/New_York"), LazyThreadSafetyMode.PublicationOnly);
-    private static readonly Lazy<TimeZoneInfo> _centralLazy = new(() => TZConvert.GetTimeZoneInfo("America/Chicago"), LazyThreadSafetyMode.PublicationOnly);
-    private static readonly Lazy<TimeZoneInfo> _mountainLazy = new(() => TZConvert.GetTimeZoneInfo("America/Boise"), LazyThreadSafetyMode.PublicationOnly);
-    private static readonly Lazy<TimeZoneInfo> _pacificLazy = new(() => TZConvert.GetTimeZoneInfo("America/Los_Angeles"), LazyThreadSafetyMode.PublicationOnly);
-    private static readonly Lazy<TimeZoneInfo> _arizonaLazy = new(() => TZConvert.GetTimeZoneInfo("America/Phoenix"), LazyThreadSafetyMode.PublicationOnly);
+    private static readonly Lazy<TimeZoneInfo> _easternLazy = new(() => TZConvert.GetTimeZoneInfo("America/New_York"));
+    private static readonly Lazy<TimeZoneInfo> _centralLazy = new(() => TZConvert.GetTimeZoneInfo("America/Chicago"));
+    private static readonly Lazy<TimeZoneInfo> _mountainLazy = new(() => TZConvert.GetTimeZoneInfo("America/Boise"));
+    private static readonly Lazy<TimeZoneInfo> _pacificLazy = new(() => TZConvert.GetTimeZoneInfo("America/Los_Angeles"));
+    private static readonly Lazy<TimeZoneInfo> _arizonaLazy = new(() => TZConvert.GetTimeZoneInfo("America/Phoenix"));
+
+    private static readonly ConcurrentDictionary<string, TimeZoneInfo> _cache = new(StringComparer.Ordinal);
 
     /// <summary>
     /// Gets the <see cref="TimeZoneInfo"/> for the Eastern Standard Time zone (EST), covering the east coast of the United States.
@@ -52,6 +54,6 @@ public static class Tz
         "America/Boise" => Mountain,
         "America/Los_Angeles" => Pacific,
         "America/Phoenix" => Arizona,
-        _ => TZConvert.GetTimeZoneInfo(cldrTimeZoneId)
+        _ => _cache.GetOrAdd(cldrTimeZoneId, static id => TZConvert.GetTimeZoneInfo(id))
     };
 }
