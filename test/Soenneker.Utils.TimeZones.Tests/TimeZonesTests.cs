@@ -1,18 +1,17 @@
-using Soenneker.Tests.FixturedUnit;
-using Xunit;
+using Soenneker.Tests.HostedUnit;
 
 using AwesomeAssertions;
 
 namespace Soenneker.Utils.TimeZones.Tests;
 
-[Collection("Collection")]
-public class TimeZonesTests : FixturedUnitTest
+[ClassDataSource<Host>(Shared = SharedType.PerTestSession)]
+public class TimeZonesTests : HostedUnitTest
 {
-    public TimeZonesTests(Fixture fixture, ITestOutputHelper output) : base(fixture, output)
+    public TimeZonesTests(Host host) : base(host)
     {
     }
 
-    [Fact]
+    [Test]
     public void Retrieving_all_zones_should_retrieve()
     {
         Tz.Eastern.Should().NotBeNull();
