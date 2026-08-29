@@ -44,8 +44,10 @@ public static class Tz
 
     /// <summary>
     /// Maps a CLDR time-zone ID (e.g. "America/Chicago") to one of the above,
-    /// or falls back to TZConvert if it’s not one of the five.
+    /// or falls back to TZConvert if itâ€™s not one of the five.
     /// </summary>
+    /// <param name="cldrTimeZoneId">The IANA/CLDR time-zone identifier to resolve.</param>
+    /// <returns>A cached <see cref="TimeZoneInfo"/> for the identifier.</returns>
     public static TimeZoneInfo FromCldr(string cldrTimeZoneId) => cldrTimeZoneId switch
     {
         "America/New_York" => Eastern,
