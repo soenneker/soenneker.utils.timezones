@@ -38,7 +38,7 @@ public static class Tz
     public static TimeZoneInfo Pacific => _pacificLazy.Value;
 
     /// <summary>
-    /// Gets the &lt;see cref="TimeZoneInfo"/&gt; for Arizona, which does not observe Daylight Saving Time and is effectively in Mountain Standard Time year-round.
+    /// Gets the <see cref="TimeZoneInfo"/> for Arizona, which does not observe daylight saving time and is effectively in Mountain Standard Time year-round.
     /// </summary>
     public static TimeZoneInfo Arizona => _arizonaLazy.Value;
 
